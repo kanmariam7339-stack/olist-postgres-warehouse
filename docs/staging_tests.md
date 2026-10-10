@@ -4,18 +4,18 @@ Checks that the `staging` layer is correct. Each query was run in the PSQL Tool 
 
 ## Summary
 
-| #   | Test                                                 | Expected                                             | Result                                     | Status |
-| --- | ---------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------ | ------ |
-| 1   | Row counts match raw                                 | 99,441 / 3,095 / 99,441 / 112,650 / 103,886 / 32,951 | identical                                  | Pass   |
-| 2   | geolocation has one row per zip code                 | 19,015                                               | 19,015                                     | Pass   |
-| 3   | order_reviews keeps every (review_id, order_id) pair | equals raw distinct pairs                            | 99,224 = 99,224                            | Pass   |
-| 4   | Primary and foreign keys exist                       | 8 PK + 6 FK = 14                                     | 14                                         | Pass   |
-| 5   | Column types are correct                             | integer, numeric, timestamp                          | as expected                                | Pass   |
-| 6   | Date range preserved                                 | 2016-09-04 to 2018-10-17                             | 2016-09-04 21:15:19 to 2018-10-17 17:30:18 | Pass   |
-| 7   | No data lost in casts                                | 2,965 NULL delivery dates                            | 2,965                                      | Pass   |
-| 8   | Totals match raw                                     | identical sums                                       | identical                                  | Pass   |
-| 9   | Products without category labeled `unknown`          | 610                                                  | 610                                        | Pass   |
-| 10  | Categories missing from the translation file         | to confirm (expected: 2)                             | to fill in                                 | To run |
+| #   | Test                                                 | Expected                                             | Result                                                         | Status |
+| --- | ---------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------------- | ------ |
+| 1   | Row counts match raw                                 | 99,441 / 3,095 / 99,441 / 112,650 / 103,886 / 32,951 | identical                                                      | Pass   |
+| 2   | geolocation has one row per zip code                 | 19,015                                               | 19,015                                                         | Pass   |
+| 3   | order_reviews keeps every (review_id, order_id) pair | equals raw distinct pairs                            | 99,224 = 99,224                                                | Pass   |
+| 4   | Primary and foreign keys exist                       | 8 PK + 6 FK = 14                                     | 14                                                             | Pass   |
+| 5   | Column types are correct                             | integer, numeric, timestamp                          | as expected                                                    | Pass   |
+| 6   | Date range preserved                                 | 2016-09-04 to 2018-10-17                             | 2016-09-04 21:15:19 to 2018-10-17 17:30:18                     | Pass   |
+| 7   | No data lost in casts                                | 2,965 NULL delivery dates                            | 2,965                                                          | Pass   |
+| 8   | Totals match raw                                     | identical sums                                       | identical                                                      | Pass   |
+| 9   | Products without category labeled `unknown`          | 610                                                  | 610                                                            | Pass   |
+| 10  | Categories missing from the translation file         | 2 categories                                         | to pc_gamer and portateis_cozinha_e_preparadores_de_alimentos. | pass   |
 
 ## Queries and results
 
