@@ -31,4 +31,6 @@ JOIN staging.orders    o  ON o.order_id    = oi.order_id
 JOIN staging.customers c  ON c.customer_id = o.customer_id
 JOIN dwh.dim_customer  dc ON dc.customer_unique_id = c.customer_unique_id
 JOIN dwh.dim_product   dp ON dp.product_id = oi.product_id
-JOIN dwh.dim_seller    ds ON ds.seller_id  = oi.seller_id AND ds.is_current;
+JOIN dwh.dim_seller    ds ON ds.seller_id  = oi.seller_id
+                         AND o.purchase_ts::date >= ds.valid_from
+                         AND o.purchase_ts::date <  ds.valid_to;
