@@ -30,4 +30,7 @@ foreach ($f in $files) {
 Write-Host "Row counts:"
 & $Psql -h $DbHost -p $Port -U $DbUser -d $Db -c "SELECT 'dim_seller' AS tbl, count(*) FROM dwh.dim_seller UNION ALL SELECT 'fact_order_items', count(*) FROM dwh.fact_order_items;"
 
+Write-Host "Data quality checks:"
+& $Psql -h $DbHost -p $Port -U $DbUser -d $Db -c "SELECT * FROM analytics.v_data_quality;"
+
 Write-Host "Pipeline finished in $([int]$timer.Elapsed.TotalSeconds) seconds."
